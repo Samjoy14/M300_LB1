@@ -12,10 +12,10 @@ Vagrant.configure(2) do |config|
     dhcp.vm.box = "ubuntu/xenial64"
     dhcp.vm.hostname = "dhcp"
     dhcp.vm.network "private_network", ip:"192.168.6.5" 
-	dhcp.vm.provider "virtualbox" do |vb|
-	  vb.memory = "1024"  
-	end     
-	dhcp.vm.provision "shell", inline: <<-SHELL
+    dhcp.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"  
+    end     
+    dhcp.vm.provision "shell", inline: <<-SHELL
         sudo apt-get update
         #Gruppe Myadmin erstellen
         sudo groupadd myadmin
@@ -27,7 +27,7 @@ Vagrant.configure(2) do |config|
         sudo chpasswd <<<test:test
         #DHCP Server installieren
         sudo apt-get -y install isc-dhcp-server
-	# DHCP Config-File konfigurieren
+	#DHCP Config-File konfigurieren
         #Domainanme konfigurieren
         sudo sed -i 's/example.org/labor.local/g' /etc/dhcp/dhcpd.conf
         #DNS konfigurieren
@@ -45,7 +45,7 @@ Vagrant.configure(2) do |config|
 	sudo service isc-dhcpd-server restart
         #Tastaturlayout anpassen
         sudo sed -i 's/XKBLAYOUT="us"/XKBLAYOUT="ch"/g' /etc/default/locale
-        # Local Firewall installieren
+        #Local Firewall installieren
         sudo apt-get -y install ufw gufw 
         sudo ufw allow from 10.0.2.2 to any port 22
         sudo ufw --force enable
@@ -56,12 +56,12 @@ SHELL
 #Im ersten Abschnitt wird das Guest-OS der VM bestimmt.
   config.vm.define "ftp" do |ftp|
     ftp.vm.box = "ubuntu/xenial64"
-	ftp.vm.provider "virtualbox" do |vb|
-	  vb.memory = "1024"  
-	end
     ftp.vm.hostname = "ftp"
     ftp.vm.network "private_network", ip: "192.168.6.6"
-	ftp.vm.network "forwarded_port", guest:3306, host:3306, auto_correct: true
+    ftp.vm.network "forwarded_port", guest:3306, host:3306, auto_correct: true
+    ftp.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"  
+    end
     ftp.vm.provision "shell", inline: <<-SHELL
         sudo apt-get update
         #FTP Server installieren
@@ -75,7 +75,7 @@ SHELL
         sudo /home/pubftp/samjoy restart
         #Tastaturlayout anpassen
         sudo sed -i 's/XKBLAYOUT="us"/XKBLAYOUT="ch"/g' /etc/default/locale
-        # Local Firewall installieren
+        #Local Firewall installieren
         sudo apt-get -y install ufw gufw 
         sudo ufw allow from 10.0.2.2 to any port 22
         sudo ufw --force enable
@@ -107,7 +107,7 @@ SHELL
       sudo service apache2 restart
       #Tastaturlayout anpassen
       sudo sed -i 's/XKBLAYOUT="us"/XKBLAYOUT="ch"/g' /etc/default/locale
-      # Local Firewall installieren
+      #Local Firewall installieren
       sudo apt-get -y install ufw gufw 
       sudo ufw allow from 10.0.2.2 to any port 22
       sudo ufw --force enable
