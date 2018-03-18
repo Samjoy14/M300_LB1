@@ -27,7 +27,7 @@ Vagrant.configure(2) do |config|
         sudo chpasswd <<<test:test
         #DHCP Server installieren
         sudo apt-get -y install isc-dhcp-server
-		# DHCP Config-File konfigurieren
+	# DHCP Config-File konfigurieren
         #Domainanme konfigurieren
         sudo sed -i 's/example.org/labor.local/g' /etc/dhcp/dhcpd.conf
         #DNS konfigurieren
@@ -42,7 +42,7 @@ Vagrant.configure(2) do |config|
         sudo sed -i '$aoption routers 192.168.6.1;' /etc/dhcp/dhcpd.conf
         sudo sed -i '$a}' /etc/dhcp/dhcpd.conf
         #DHCP Server neustarten
-		sudo service isc-dhcpd-server restart
+	sudo service isc-dhcpd-server restart
         #Tastaturlayout anpassen
         sudo sed -i 's/XKBLAYOUT="us"/XKBLAYOUT="ch"/g' /etc/default/locale
         # Local Firewall installieren
@@ -71,7 +71,7 @@ SHELL
         sudo useradd -g ftpgroup -d /dev/null -s /etc ftpuser
         sudo pure-pw useradd samjoy -u ftpuser -g ftpgroup -d /home/pubftp/samjoy -N 10
         #FTP Server neustarten
-		#sudo service pure-ftpd-common pure-ftpd restart
+	#sudo service pure-ftpd-common pure-ftpd restart
         sudo /home/pubftp/samjoy restart
         #Tastaturlayout anpassen
         sudo sed -i 's/XKBLAYOUT="us"/XKBLAYOUT="ch"/g' /etc/default/locale
