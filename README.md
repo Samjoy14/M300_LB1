@@ -210,4 +210,8 @@ Mit folgendem Befehl kann die VM aufgesetzt werden.
 ```
 vagrant up
 ```
+Public Key
+----------
+id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8b05OUdL9adlYo7XnsmYUc9ZVDAvLiP2cIAEwF6lmCfZlwtwaVpTG8LjbRLC6K3QA9AWKm1NgaNaMTAHou9oj2IjhmxKSyv5F6fCXeelDVGl8XDRrT5pp9+0WmIrnwq3U431ig6ubAX31zj2CK9eZmSatofq+yXTjRQhrkMdI2VmPWgTfLFH5G+B7wZsEyWIsEchHJ0O5nbgsFygLi0r2aRlKXM+PtlCxkMudwGs56VPnTbYbSvxRpw2epgD8jmVGCu2T7BIoVzZpGUvInlErnQ9HoOVtUlE/nxTuK4ePX86HBhd/owhcBkIqtK4z2CRL5NvFhrXDboOYHeEuXycJ Samjoy@Samjoy-PC
 Alle Informationen, Angaben und Textbeiträge innerhalb sind ohne Gewähr auf Vollständigkeit und Richtigkeit.
